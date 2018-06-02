@@ -1,0 +1,24 @@
+pi@raspberrypi:~/workspace/try_and_understand_linux/chap2 $ ./loop &
+[3] 3413
+pi@raspberrypi:~/workspace/try_and_understand_linux/chap2 $ sar -P ALL 1 1
+Linux 4.14.34+ (raspberrypi)    02/06/18        _armv6l_        (1 CPU)
+
+06:27:47        CPU     %user     %nice   %system   %iowait    %steal     %idle
+06:27:48        all     96.00      0.00      4.00      0.00      0.00      0.00
+06:27:48          0     96.00      0.00      4.00      0.00      0.00      0.00
+
+Average:        CPU     %user     %nice   %system   %iowait    %steal     %idle
+Average:        all     96.00      0.00      4.00      0.00      0.00      0.00
+Average:          0     96.00      0.00      4.00      0.00      0.00      0.00
+pi@raspberrypi:~/workspace/try_and_understand_linux/chap2 $ kill -9 3413
+pi@raspberrypi:~/workspace/try_and_understand_linux/chap2 $ sar -P ALL 1 1
+Linux 4.14.34+ (raspberrypi)    02/06/18        _armv6l_        (1 CPU)
+
+06:28:01        CPU     %user     %nice   %system   %iowait    %steal     %idle
+06:28:02        all      0.00      0.00      3.03      0.00      0.00     96.97
+06:28:02          0      0.00      0.00      3.03      0.00      0.00     96.97
+
+Average:        CPU     %user     %nice   %system   %iowait    %steal     %idle
+Average:        all      0.00      0.00      3.03      0.00      0.00     96.97
+Average:          0      0.00      0.00      3.03      0.00      0.00     96.97
+[3]   Killed                  ./loop
