@@ -9,13 +9,13 @@ import (
 
 func child() {
 	fmt.Println("I'm child my pid is ", os.Getpid())
-	err := exec.Command("echo", "hello").Run()
+	out, err := exec.Command("echo", "hello").Output()
+	fmt.Println(string(out))
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "error: %v\n", err)
 		os.Exit(1)
 	}
 	os.Exit(0)
-
 }
 
 func parent(childPid uintptr) {
